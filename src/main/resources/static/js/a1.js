@@ -38,16 +38,11 @@ export function fillInfo() {
 //функция заполнения таблица текущего юзера
 export async function fullCurrentUserTable() {
     const currentUserTableBody = document.getElementById('currentUserTableBody');
-
     try {
-        const response = await fetch(url + 'user/info');
-        if (!response.ok) {
-            console.log('Failed to fetch user information')
-        }
-
-        const data = await response.json();
-        updateUserInfo(data);
-        renderUserTable(currentUserTableBody, data);
+        fetchJSON(url + 'user/info')
+            .then(data => {
+                renderUserTable(currentUserTableBody, data);
+            })
     } catch (error) {
         console.error(error);
     }

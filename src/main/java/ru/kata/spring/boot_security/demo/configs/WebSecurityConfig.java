@@ -25,12 +25,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
 
-    //это не нужно, мы уже задали bean с DaoAuthenticationProvider, spring найдет его
-//    @Override
-//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.authenticationProvider(daoAuthenticationProvider());
-//    }
-
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -46,7 +40,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .logout().logoutSuccessUrl("/login").permitAll();
     }
-//Для входа под именем администратора: login/password = ivan/ivan
+//Для входа под именем администратора: login/password = admin/admin
 
 
     @Bean
